@@ -45,11 +45,5 @@ rm -fr $RPM_BUILD_ROOT
 %{_libdir}/emacs/etc/Mew
 %{_mandir}/man?/*
 %dir %{_datadir}/emacs/site-lisp/mew
-%{_datadir}/emacs/site-lisp/mew/*.elc
-%{_datadir}/emacs/site-lisp/mew/mew-gemacs.el*
-%{_datadir}/emacs/site-lisp/mew/mew-lang-jp.el*
-%{_datadir}/emacs/site-lisp/mew/mew-mule*.el*
-%{_datadir}/emacs/site-lisp/mew/mew-unix.el*
-%{_datadir}/emacs/site-lisp/mew/mew-win32.el*
-%{_datadir}/emacs/site-lisp/mew/mew-xemacs.el*
+%{_datadir}/emacs/site-lisp/mew/mew*.el*
 %{_infodir}/mew*
