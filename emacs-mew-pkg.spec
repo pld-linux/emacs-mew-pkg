@@ -7,6 +7,7 @@ Release:	1
 License:	BSD
 Group:		Applications/Editors/Emacs
 Source0:	ftp://ftp.mew.org/pub/Mew/release/mew-2.2.tar.gz
+# Source0-md5:	2758098d970f253fa5bb8cf86244c0d7
 URL:		http://www.mew.org/
 BuildRequires:	emacs
 Requires:	emacs >= 20.7
