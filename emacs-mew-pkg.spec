@@ -2,12 +2,12 @@ Summary:	Great MIME mail reader for Emacs/XEmacs
 Summary(pl):	Wspania³y czytnik poczty MIME dla Emacs/XEmacs
 Name:		emacs-mew-pkg
 %define 	srcname	mew
-Version:	2.2
+Version:	3.3
 Release:	1
 License:	BSD
 Group:		Applications/Editors/Emacs
-Source0:	ftp://ftp.mew.org/pub/Mew/release/mew-2.2.tar.gz
-# Source0-md5:	2758098d970f253fa5bb8cf86244c0d7
+Source0:	ftp://ftp.mew.org/pub/Mew/release/mew-%{version}.tar.gz
+# Source0-md5:	81b986698d5d356df19442546a6c993e
 URL:		http://www.mew.org/
 BuildRequires:	emacs
 Requires:	emacs >= 20.7
