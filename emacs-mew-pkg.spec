@@ -6,7 +6,7 @@ Version:	3.3
 Release:	1
 License:	BSD
 Group:		Applications/Editors/Emacs
-Source0:	ftp://ftp.mew.org/pub/Mew/release/mew-%{version}.tar.gz
+Source0:	http://www.mew.org/Release/mew-%{version}.tar.gz
 # Source0-md5:	81b986698d5d356df19442546a6c993e
 URL:		http://www.mew.org/
 BuildRequires:	emacs
