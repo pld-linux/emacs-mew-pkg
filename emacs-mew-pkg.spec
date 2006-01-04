@@ -56,4 +56,4 @@ rm -fr $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_emacs_lispdir}/mew
 %{_mandir}/man?/*
-%{_infodir}/*
+%{_infodir}/*.info*
