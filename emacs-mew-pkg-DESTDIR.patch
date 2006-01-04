@@ -1,0 +1,111 @@
+--- Makefile.in~	2006-01-04 18:45:39.244746048 +0100
++++ Makefile.in	2006-01-04 18:51:08.385709016 +0100
+@@ -130,11 +130,11 @@
+ 	@echo ')))' >> $(TEMPFILE)
+ 
+ install-el: $(OBJS)
+-	-@if [ ! -d $(elispdir) ]; then \
+-		$(MKDIR) $(elispdir); \
++	-@if [ ! -d $(DESTDIR)$(elispdir) ]; then \
++		$(MKDIR) $(DESTDIR)$(elispdir); \
+ 	fi
+-	$(CP) $(SRCS) $(elispdir)
+-	$(CP) $(OBJS) $(elispdir)
++	$(CP) $(SRCS) $(DESTDIR)$(elispdir)
++	$(CP) $(OBJS) $(DESTDIR)$(elispdir)
+ 
+ ################################################################
+ 
+@@ -175,10 +175,10 @@
+ ################################################################
+ 
+ install-etc:
+-	-@if [ ! -d $(etcdir) ]; then \
+-		$(MKDIR) $(etcdir); \
++	-@if [ ! -d $(DESTDIR)$(etcdir) ]; then \
++		$(MKDIR) $(DESTDIR)$(etcdir); \
+ 	fi
+-	cd etc; $(CP) -r * $(etcdir)/
++	cd etc; $(CP) -r * $(DESTDIR)$(etcdir)/
+ 
+ ################################################################
+ 
+--- bin/Makefile.in~	2003-03-06 11:42:22.000000000 +0100
++++ bin/Makefile.in	2006-01-04 18:54:07.547472288 +0100
+@@ -92,22 +92,22 @@
+ 	$(RM) $(CNF) $(MK)
+ 
+ install: all
+-	-@if [ ! -d $(bindir) ]; then \
+-		$(MKDIR) $(bindir); \
++	-@if [ ! -d $(DESTDIR)$(bindir) ]; then \
++		$(MKDIR) $(DESTDIR)$(bindir); \
+ 	fi
+-	$(INSTALL) -m 555 $(PRG1) $(bindir)
++	$(INSTALL) -m 755 $(PRG1) $(DESTDIR)$(bindir)
+ 	for f in $(ALT); do \
+-	  $(RM) $(bindir)/$${f}; $(LN) $(bindir)/$(PRG1) $(bindir)/$${f}; done
+-	$(INSTALL) -m 555 $(PRG2) $(bindir)
+-	$(INSTALL) -m 555 $(PRG3) $(bindir)
+-	-@if [ ! -d $(mandir) ]; then \
+-		$(MKDIR) $(mandir); \
++	  $(RM) $(DESTDIR)$(bindir)/$${f}; $(LN) $(DESTDIR)$(bindir)/$(PRG1) $(DESTDIR)$(bindir)/$${f}; done
++	$(INSTALL) -m 555 $(PRG2) $(DESTDIR)$(bindir)
++	$(INSTALL) -m 755 $(PRG3) $(DESTDIR)$(bindir)
++	-@if [ ! -d $(DESTDIR)$(mandir) ]; then \
++		$(MKDIR) $(DESTDIR)$(mandir); \
+ 	fi
+-	$(INSTALL) -m 444 $(MAN1) $(mandir)
++	$(INSTALL) -m 644 $(MAN1) $(DESTDIR)$(mandir)
+ 	for f in $(MALT); do \
+-	  $(RM) $(mandir)/$${f}; $(LN) $(mandir)/$(MAN1) $(mandir)/$${f}; done
+-	$(INSTALL) -m 444 $(MAN2) $(mandir)
+-	$(INSTALL) -m 444 $(MAN3) $(mandir)
++	  $(RM) $(mandir)/$${f}; $(LN) $(DESTDIR)$(mandir)/$(MAN1) $(DESTDIR)$(mandir)/$${f}; done
++	$(INSTALL) -m 444 $(MAN2) $(DESTDIR)$(mandir)
++	$(INSTALL) -m 644 $(MAN3) $(DESTDIR)$(mandir)
+ 
+ ##
+ ## End of Makefile
+--- info/Makefile~	2004-12-27 05:00:04.000000000 +0100
++++ info/Makefile	2006-01-04 18:58:59.375107744 +0100
+@@ -28,9 +28,9 @@
+ #INSTALLINFO_OPTIONS = --section Emacs Emacs
+ #INSTALLINFO_JOPTIONS =
+ #infodir = 
+-INSTALLINFO_ARGS  = --info-dir=$(infodir) mew.info
++INSTALLINFO_ARGS  = --info-dir=$(DESTDIR)$(infodir) mew.info
+ #INSTALLINFO_ARGS  = mew.info 
+-INSTALLINFO_JARGS = --info-dir=$(infodir) mew.jis.info
++INSTALLINFO_JARGS = --info-dir=$(DESTDIR)$(infodir) mew.jis.info
+ 
+ 
+ RM = rm -f
+@@ -68,10 +68,10 @@
+ 
+ install: install-info
+ install-info:
+-	-@if [ ! -d $(infodir) ]; then \
+-		$(MKDIR) $(infodir); \
++	-@if [ ! -d $(DESTDIR)$(infodir) ]; then \
++		$(MKDIR) $(DESTDIR)$(infodir); \
+ 	fi; \
+-	cp $(INFO) $(infodir)
++	cp $(INFO) $(DESTDIR)$(infodir)
+ 	-@if [ -x "$(INSTALLINFO)" ]; then \
+ 		$(INSTALLINFO) $(INSTALLINFO_OPTIONS) $(INSTALLINFO_ARGS); \
+ 	else \
+@@ -79,10 +79,10 @@
+ 	fi
+ 
+ install-jinfo:
+-	-@if [ ! -d $(infodir) ]; then \
+-		$(MKDIR) $(infodir); \
++	-@if [ ! -d $(DESTDIR)$(infodir) ]; then \
++		$(MKDIR) $(DESTDIR)$(infodir); \
+ 	fi; \
+-	cp $(JINFO) $(infodir)
++	cp $(JINFO) $(DESTDIR)$(infodir)
+ 	-@if [ -x "$(INSTALLINFO)" ]; then \
+ 		$(INSTALLINFO) $(INSTALLINFO_JOPTIONS) $(INSTALLINFO_JARGS); \
+ 	else \
