@@ -1,5 +1,5 @@
 Summary:	Great MIME mail reader for Emacs/XEmacs
-Summary(pl.UTF-8):   Wspaniały czytnik poczty MIME dla Emacs/XEmacs
+Summary(pl.UTF-8):	Wspaniały czytnik poczty MIME dla Emacs/XEmacs
 Name:		emacs-mew-pkg
 %define 	srcname	mew
 Version:	4.2
