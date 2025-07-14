@@ -22,7 +22,7 @@ Komunikowanie w Świecie Emacsa.
 
 %prep
 %setup -q -n %{srcname}-%{version}
-%patch0 -p0
+%patch -P0 -p0
 
 %build
 cd bin
